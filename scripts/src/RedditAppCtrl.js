@@ -15,7 +15,6 @@ angular.module('redditApp')
       .catch(() => {
         $scope.notFound = true;
       });
-      $scope.getPosts('r/news'); // temporary to speed up testing
     },
   ]
 );

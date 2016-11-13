@@ -24,14 +24,16 @@ angular.module('redditApp').component('redditPosts', {
     // returns array of booleans representing which token was found in post title
     const textSearchMatches = (post) => {
       if (!ctrl.textSearch) {
-        return [true];
+        return [true]; // This is a helper function outputs arrays, [true] is the pass through value
       }
       const tokens = ctrl.textSearch.split(' ');
       return tokens.map(
         (token) => post.title.toLowerCase().indexOf(token.toLowerCase()) !== -1);
     };
+    // Returns true if any of the tokens passed the search test
     ctrl.textSearchORFilter = (post) => textSearchMatches(post)
     .filter((isMatch) => isMatch).length > 0;
+    // Returns the number of tokens that passed the search test
     ctrl.textSearchORFilterRanking = (post) => textSearchMatches(post)
     .reduce((acc, val) => acc + val);
   },
