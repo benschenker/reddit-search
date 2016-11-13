@@ -1,0 +1,12 @@
+# Logs
+logs
+*.log
+
+# node dependencies
+node_modules
+
+# babel generated files
+lib
+
+# bower
+bower_components
