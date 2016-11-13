@@ -1,7 +1,5 @@
 /* global angular*/
-/* eslint func-names: "off", no-param-reassign: "off"*/
-
-
+/* eslint func-names: "off" */
 angular.module('redditApp').component('singleInputForm', {
   template: `
     <form ng-submit="$ctrl.update(subRedditName)">
