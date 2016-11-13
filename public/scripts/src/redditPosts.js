@@ -2,9 +2,9 @@
 angular.module('redditApp').component('redditPosts', {
   template: `
     <div ng-show="$ctrl.posts.length">
-      <input type="number" ng-model="$ctrl.minComments" placeholder="Minimum # of Comments"/>
-      <input type="number" ng-model="$ctrl.maxComments" placeholder="Maximum # of Comments"/>
-      <input type="number" ng-model="$ctrl.minUps" placeholder="Minimum # of Upvotes"/>
+      <input type="number" ng-model="$ctrl.minComments" placeholder="Min # of Comments"/>
+      <input type="number" ng-model="$ctrl.maxComments" placeholder="Max # of Comments"/>
+      <input type="number" ng-model="$ctrl.minUps" placeholder="Min # of Upvotes"/>
       <input type="text" ng-model="$ctrl.textSearch" placeholder="Text search"/>
     </div>
     <div ng-repeat="post in $ctrl.posts

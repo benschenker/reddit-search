@@ -6,7 +6,7 @@ angular.module('redditApp')
     '$scope',
     '$http',
     ($scope, $http) => {
-      const redditApiBase = 'https://www.reddit.com/';
+      const redditApiBase = 'https://www.reddit.com/r/';
       $scope.getPosts = (subReddit) => $http.get(`${redditApiBase}${subReddit}.json`)
       .then((res) => {
         $scope.notFound = false;
