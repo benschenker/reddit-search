@@ -11,6 +11,9 @@ angular.module('redditApp')
       $scope.getPosts = (subReddit) => $http.get(`${redditApiBase}${subReddit}.json`)
       .then((res) => {
         $scope.data = res.data;
+      })
+      .catch((err) => {
+        $scope.data = err;
       });
     },
   ]
