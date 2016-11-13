@@ -2,14 +2,12 @@
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
 <body class="main container text-center" ng-app="redditApp" ng-controller="RedditAppCtrl">
   <h1>Reddit App</h1>
-  <form ng-submit="getPosts(subRedditName)">
-    <input type=text placeholder="subreddit, try 'r/news'" ng-model="subRedditName"/>
-    <button class="btn btn-primary" type="submit">Get Posts!</button>
-  </form
+  <single-input-form on-update="getPosts(name)"></single-input-form>
   <div class="results">
     {{data | json}}
   </div>
   <script src="bower_components/angular/angular.js"></script>
   <script src="scripts/lib/app.js"></script>
   <script src="scripts/lib/RedditAppCtrl.js"></script>
+  <script src="scripts/lib/singleInputForm.js"></script>
 </body>
