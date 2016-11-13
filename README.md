@@ -1,7 +1,7 @@
 # Reddit App
 
 ## Overview 
-A simple reddit app
+A simple reddit app that lets you filter through the first page of a subreddit
 
 ## Technical Overview
 
@@ -9,7 +9,7 @@ A simple reddit app
 
 * Javascript (ES6/ES2015)
  * Transpiling all front end code using babel
-* Angular
+* Angular 1.5
 * Eslint
  * Linting using Airbnb style guide for all JS
 
