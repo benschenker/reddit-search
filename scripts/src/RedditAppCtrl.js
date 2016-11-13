@@ -5,8 +5,13 @@ angular.module('redditApp')
 .controller('RedditAppCtrl',
   [
     '$scope',
-    ($scope) => {
-
+    '$http',
+    ($scope, $http) => {
+      const redditApiBase = 'https://www.reddit.com/';
+      $scope.getPosts = (subReddit) => $http.get(`${redditApiBase}${subReddit}.json`)
+      .then((res) => {
+        $scope.data = res.data;
+      });
     },
   ]
 );
