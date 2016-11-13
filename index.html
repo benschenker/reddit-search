@@ -4,7 +4,8 @@
   <h1>Reddit App</h1>
   <single-input-form on-update="getPosts(name)"></single-input-form>
   <div class="results">
-    <reddit-posts posts=posts></reddit-posts>
+    <reddit-posts posts=posts ng-hide="notFound"></reddit-posts>
+    <span ng-show="notFound">Bad Subreddit. Try "r/news"</span>
   </div>
   <script src="bower_components/angular/angular.js"></script>
   <script src="scripts/lib/app.js"></script>
