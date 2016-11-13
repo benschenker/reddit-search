@@ -10,7 +10,7 @@ angular.module('redditApp')
       $scope.getPosts = (subReddit) => $http.get(`${redditApiBase}${subReddit}.json`)
       .then((res) => {
         $scope.notFound = false;
-        $scope.posts = res.data.data.children;
+        $scope.posts = res.data.data.children.map((post) => post.data);
       })
       .catch(() => {
         $scope.notFound = true;
