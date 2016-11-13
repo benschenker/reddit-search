@@ -4,10 +4,11 @@
   <h1>Reddit App</h1>
   <single-input-form on-update="getPosts(name)"></single-input-form>
   <div class="results">
-    {{data | json}}
+    <reddit-posts posts=posts></reddit-posts>
   </div>
   <script src="bower_components/angular/angular.js"></script>
   <script src="scripts/lib/app.js"></script>
   <script src="scripts/lib/RedditAppCtrl.js"></script>
   <script src="scripts/lib/singleInputForm.js"></script>
+  <script src="scripts/lib/redditPosts.js"></script>
 </body>
