@@ -2,7 +2,8 @@
 angular.module('redditApp').component('redditPosts', {
   template: `
     <div ng-repeat="post in $ctrl.posts">
-      {{post | json}}
+      <a href="{{post.data.url}}">{{post.data.title}}</a>
+      <span>submitted by {{post.data.author}}</span>
     </div>
   `,
   bindings: {
