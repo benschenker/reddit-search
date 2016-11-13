@@ -10,6 +10,7 @@ angular.module('redditApp').component('redditPosts', {
           | filter: $ctrl.maxCommentFilter
           | filter: $ctrl.minUpsFilter
           | filter: $ctrl.textSearchORFilter
+          | orderBy: $ctrl.textSearchORFilterRanking:true
     ">
       <a href="{{post.url}}">{{post.title}}</a>
       <span>submitted by {{post.author}}</span>
@@ -20,17 +21,19 @@ angular.module('redditApp').component('redditPosts', {
     ctrl.minCommentFilter = (post) => post.num_comments > (ctrl.minComments || 0);
     ctrl.maxCommentFilter = (post) => post.num_comments < (ctrl.maxComments || Infinity);
     ctrl.minUpsFilter = (post) => post.ups > (ctrl.minUps || 0);
-
-    // Performs a text search on multiple tokens separated by a space and returns true if any pass
-    ctrl.textSearchORFilter = (post) => {
+    // returns array of booleans representing which token was found in post title
+    const textSearchMatches = (post) => {
       if (!ctrl.textSearch) {
-        return true;
+        return [true];
       }
       const tokens = ctrl.textSearch.split(' ');
-      // TODO: make case insensitive
-      const matchingTokens = tokens.map((token) => post.title.indexOf(token) !== -1);
-      return matchingTokens.filter((isMatch) => isMatch).length > 0;
+      return tokens.map(
+        (token) => post.title.toLowerCase().indexOf(token.toLowerCase()) !== -1);
     };
+    ctrl.textSearchORFilter = (post) => textSearchMatches(post)
+    .filter((isMatch) => isMatch).length > 0;
+    ctrl.textSearchORFilterRanking = (post) => textSearchMatches(post)
+    .reduce((acc, val) => acc + val);
   },
   bindings: {
     posts: '<',
